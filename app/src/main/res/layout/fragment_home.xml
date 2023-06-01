@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.HomeFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/menu_button"
+                    android:layout_width="56dp"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_menu" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/menu_button"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/grey_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_layout">
+
+
+            <!--            main code-->
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/fio_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/back_edit"
+                        android:hint="@string/f_i_o"
+                        android:padding="10dp" />
+
+
+                    <include
+                        android:id="@+id/include_question1"
+                        layout="@layout/question1" />
+
+                    <include
+                        android:id="@+id/include_question2"
+                        layout="@layout/question2" />
+
+                    <include
+                        android:id="@+id/include_question3"
+                        layout="@layout/question3" />
+
+                    <include
+                        android:id="@+id/include_question4"
+                        layout="@layout/question4" />
+
+                    <include
+                        android:id="@+id/include_question5"
+                        layout="@layout/question5" />
+
+                    <include
+                        android:id="@+id/include_question6"
+                        layout="@layout/question6" />
+
+                    <include
+                        android:id="@+id/include_question7"
+                        layout="@layout/question7" />
+
+                    <include
+                        android:id="@+id/include_question8"
+                        layout="@layout/question8" />
+
+                    <include
+                        android:id="@+id/include_question9"
+                        layout="@layout/question9" />
+
+                    <include
+                        android:id="@+id/include_question_10"
+                        layout="@layout/question_10" />
+
+                    <include
+                        android:id="@+id/include_question_11"
+                        layout="@layout/question_11" />
+
+                    <include
+                        android:id="@+id/include_question_12"
+                        layout="@layout/question_12" />
+
+                    <include
+                        android:id="@+id/include_question_13"
+                        layout="@layout/question_13" />
+
+                    <include
+                        android:id="@+id/include_question_14"
+                        layout="@layout/question_14" />
+
+                    <include
+                        android:id="@+id/include_question_16"
+                        layout="@layout/question_16" />
+
+                    <include
+                        android:id="@+id/include_question_17"
+                        layout="@layout/question_17" />
+
+                    <include
+                        android:id="@+id/include_question_18"
+                        layout="@layout/question_18" />
+
+                    <include
+                        android:id="@+id/include_question_19"
+                        layout="@layout/question_19" />
+
+                    <include
+                        android:id="@+id/include_question_20"
+                        layout="@layout/question_20" />
+
+                    <include
+                        android:id="@+id/include_question_21"
+                        layout="@layout/question_21" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/result_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_margin="12dp"
+                        android:background="@drawable/back_result"
+                        android:text="@string/result_btn"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <include
+                        android:id="@+id/include"
+                        layout="@layout/header_navigation"
+                        android:layout_width="match_parent"
+                        android:layout_height="270dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_nav"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_nav" />
+
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

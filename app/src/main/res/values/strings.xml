@@ -1,0 +1,144 @@
+<resources>
+    <string name="app_name">Med Analysis</string>
+
+    <string name="main">Aсосий</string>
+    <string name="save">Сақланганлар</string>
+    <string name="info">Илова ҳақида</string>
+    <string name="downloaded">Юклаб олинганлар</string>
+    <string name="language">Тил</string>
+    <string name="share">Юбориш</string>
+    <string name="rate">Баҳолаш</string>
+    <string name="authors">Муаллифлар</string>
+    <string name="exit">Чиқиш</string>
+
+    <string name="about_app">About App</string>
+    <string name="about_app_info">“COVID-19 реконвалесцентларда кардиоваскуляр хавфни аниқлаш” мобил иловаси </string>
+    <string name="f_i_o">Ф.И.О</string>
+
+    <string name="yes">Ҳа:</string>
+    <string name="has">Бор:</string>
+
+    <string name="question1">1.Наслийлик</string>
+    <string name="question2">2. Чекиш</string>
+    <string name="question3">3. Гиподинамия</string>
+    <string name="question4">4. Семизлик</string>
+    <string name="question5">5. Тана вазни индекси</string>
+    <string name="question6">6. Холестерин</string>
+    <string name="question7">7. Артериал гипертония</string>
+    <string name="question8">8. Кардиоваскуляр хавф омиллари сони</string>
+    <string name="question9">9. Юрак ишемик касаллиги</string>
+    <string name="question10">10. Сурункали юрак етишмовчилиги</string>
+    <string name="question11">11. Қандли диабет 2 тур</string>
+    <string name="question12">12. COVID пневмонияси ўтказган</string>
+    <string name="question13">13. МСКТ бўйича ўпка зарарланиши</string>
+    <string name="question14">14.Нафас олиш сони</string>
+    <string name="question15">NONE</string>
+    <string name="question16">15. Кислород сатурацияси</string>
+    <string name="question17">16.Фибриноген</string>
+    <string name="question18">17. С реатив оқсил </string>
+    <string name="question19">18. D димер</string>
+    <string name="question20">19. Креатинин</string>
+    <string name="question21">20. Буйрак коптокчалар фильтрация тезлиги (ҳКФТ)</string>
+
+    <string name="question1_answer1">Йўқ – 0 балл</string>
+    <string name="question1_answer2">Ҳа – 1 балл</string>
+
+
+    <string name="question2_answer1">Йўқ – 0 балл</string>
+    <string name="question2_answer2">Ҳа – 1 балл</string>
+
+    <string name="question3_answer1">Йўқ – 0 балл</string>
+    <string name="question3_answer2">Ҳа – 1 балл</string>
+
+    <string name="question4_answer1">Йўқ – 0 балл</string>
+    <string name="question4_answer2">-	1 даража -  1 балл</string>
+    <string name="question4_answer3">-	2 даража – 2 балл</string>
+    <string name="question4_answer4">-  3 даража – 3 балл</string>
+
+    <string name="question5_answer1"> &lt;25 – 0 балл</string>
+    <string name="question5_answer2">&gt;25 – 1 балл</string>
+
+    <string name="question6_answer1">&lt;5 ммоль/л – 0 балл</string>
+    <string name="question6_answer2">&gt;5 ммоль/л - 1 балл</string>
+
+    <string name="question7_answer1">Йўқ – 0 балл</string>
+    <string name="question7_answer2">     -	1 даража - 1 балл</string>
+    <string name="question7_answer3">     -	2 даража – 2 балл</string>
+    <string name="question7_answer4">     - 3 даража – 3 балл</string>
+
+    <string name="question8_answer1">Йўқ - 0 балл</string>
+    <string name="question8_answer2">&lt; 1 – 1 балл</string>
+    <string name="question8_answer3">= 2 – 2 балл</string>
+    <string name="question8_answer4">&gt; 3 – 3 балл</string>
+
+    <string name="question9_answer1">Йўқ – 0 балл</string>
+    <string name="question9_answer2">I ФС - 1 балл</string>
+    <string name="question9_answer3">II ФС - 2 балл</string>
+    <string name="question9_answer4">III ФС - 3 балл</string>
+    <string name="question9_answer5">IVФС - 4 балл</string>
+
+
+    <string name="question10_answer1">Йўқ – 0 балл</string>
+    <string name="question10_answer2">I ФС - 1 балл</string>
+    <string name="question10_answer3">II ФС - 2 балл</string>
+    <string name="question10_answer4">III ФС - 3 балл</string>
+    <string name="question10_answer5">IVФС - 4 балл</string>
+
+    <string name="question11_answer1">Йўқ – 0 балл</string>
+    <string name="question11_answer2">Енгил шакли -1 балл</string>
+    <string name="question11_answer3">Ўртача шакли - 2 балл</string>
+    <string name="question11_answer4">Оғир шакли - 3 балл</string>
+
+
+    <string name="question12_answer1">Йўқ – 0 балл</string>
+    <string name="question12_answer2">Ҳа – 1 балл</string>
+
+    <string name="question13_answer1">&lt;0–25% - 1 балл</string>
+    <string name="question13_answer2">25–50% - 2 балл</string>
+    <string name="question13_answer3">59–75% - 3 балл</string>
+    <string name="question13_answer4">&gt;75% дан кўп - 4 балл</string>
+
+    <string name="question14_answer1">&lt;20 – 0 балл</string>
+    <string name="question14_answer2">&gt;20 – 1 балл</string>
+
+    <string name="question16_answer1">&gt;95% - 1 балл</string>
+    <string name="question16_answer2">95%-90% - 2 балл</string>
+    <string name="question16_answer3">90%-85% - 3 балл</string>
+    <string name="question16_answer4">&lt;85% - 4 балл</string>
+
+    <string name="question17_answer1">&lt; 400 мг/дл -0</string>
+    <string name="question17_answer2">&gt; 400 мг/дл - 1</string>
+
+    <string name="question18_answer1">&lt; 6 мг/л - 0</string>
+    <string name="question18_answer2">&gt; 6 мг/л -1</string>
+
+    <string name="question19_answer1">&lt; 250 нг/мл - 0</string>
+    <string name="question19_answer2">&gt; 250 нг/мл – 1</string>
+
+    <string name="question20_answer1">&lt;80 мкмоль/л -1 балл</string>
+    <string name="question20_answer2">81–100 мкмоль/л -2 балл</string>
+    <string name="question20_answer3">101–120 мкмоль/л -3 балл</string>
+    <string name="question20_answer4">&gt;121 мкмоль/л - 4 балл</string>
+
+    <string name="question21_answer1">&lt; 90 мл/мин/1,73 м2 -1 балл</string>
+    <string name="question21_answer2"> 90–60 мл/мин/1,73 м2 – 2 балл</string>
+    <string name="question21_answer3">59–45 мл/мин/1,73 м2 – 3 балл</string>
+    <string name="question21_answer4">44–30 мл/мин/1,73 м2 – 4 балл</string>
+    <string name="question21_answer5">&gt; 30 мл/мин - 5 балл</string>
+    <string name="result_btn">Натижа</string>
+    <string name="input_fio">Исм Фамиля киритинг</string>
+
+
+
+    <string name="sum_ball">Балларнинг умумий йиғиндиси: </string>
+
+    <string name="xavf_past">16 балл – паст хавф</string>
+    <string name="xavf_orta">17 – 31 балл – ўртача хавф </string>
+    <string name="xavf_yuqori">32 – 47 балл – юқори хавф </string>
+
+    <string name="tavsifa_past">ТАВСИЯ – соғлом турмуш тарзига риоя қилиш, доимий шифокор назоратда бўлиш</string>
+    <string name="tavsifa_orta">ТАВСИЯ – соғлом турмуш тарзига риоя қилиш, кардиолог кўриги, амбулатор даволаниш, диспансер кузатуви</string>
+    <string name="tavsifa_yuqori">ТАВСИЯ - соғлом турмуш тарзига риоя қилиш, кардиолог кўриги, стационар шароитда даволашга йўлланма, диспансер кузатуви</string>
+
+
+</resources>
