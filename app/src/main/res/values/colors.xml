@@ -16,4 +16,11 @@
     <color name="grey">#F2F2F2</color>
     <color name="grey_seashell">#F1F1F1</color>
     <color name="grey_blue">#F3F6FD</color>
+
+    <color name="grey2">#8F8F8F</color>
+
+    <color name="woman">#E91E63</color>
+    <color name="man">#03A9F4</color>
+    <color name="light_blue">#95C3F5</color>
+
 </resources>

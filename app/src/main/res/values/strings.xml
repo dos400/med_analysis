@@ -12,7 +12,12 @@
     <string name="exit">Чиқиш</string>
 
     <string name="about_app">About App</string>
-    <string name="about_app_info">“COVID-19 реконвалесцентларда кардиоваскуляр хавфни аниқлаш” мобил иловаси </string>
+    <string name="about_app_info">Лойиҳа мақсади: COVID-19 реконвалесцентларда кардиоваскуляр хавфни баҳолаш учун алгоритм, дастурий маҳсулот ва мобил иловани ишлаб чиқиш.
+Лойиҳа вазифалари:
+1. COVID-19 реконвалесцентларда кардиоваскуляр хавф ривожланишининг прогностик омилларини аниқлаш
+2. COVID-19 реконвалесцентларда кардиоваскуляр хавфни эрта баҳолаш мезонларини аниқлаш
+3. COVID-19 реконвалесцентларда кардиоваскуляр хавфни баҳолаш алгоритми ва   дастурий маҳсулот ишлаб чиқиш
+4. COVID-19 реконвалесцентларда кардиоваскуляр хавфни баҳолаш учун   мобил илова яратиш </string>
     <string name="f_i_o">Ф.И.О</string>
 
     <string name="yes">Ҳа:</string>
@@ -129,7 +134,6 @@
     <string name="input_fio">Исм Фамиля киритинг</string>
 
 
-
     <string name="sum_ball">Балларнинг умумий йиғиндиси: </string>
 
     <string name="xavf_past">16 балл – паст хавф</string>
@@ -140,5 +144,19 @@
     <string name="tavsifa_orta">ТАВСИЯ – соғлом турмуш тарзига риоя қилиш, кардиолог кўриги, амбулатор даволаниш, диспансер кузатуви</string>
     <string name="tavsifa_yuqori">ТАВСИЯ - соғлом турмуш тарзига риоя қилиш, кардиолог кўриги, стационар шароитда даволашга йўлланма, диспансер кузатуви</string>
 
+    <string name="address">Манзил</string>
+    <string name="born">Туғилган йили</string>
+
+
+    <string name="man">Еркак</string>
+    <string name="woman">Аёл</string>
+    <string name="sex">Жинс</string>
+
+    <string name="user">Фойдаланувчи</string>
+    <string name="diagnoss">Диагноз</string>
+    <string name="time">Вақт</string>
+
+    <string name="input_date">Tug\'ilgan yilingizni kiriting!</string>
+    <string name="input_sex">Jinsingizni kiriting!</string>
 
 </resources>

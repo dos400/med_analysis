@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import uz.hamroev.imagebywavelet.utils.gone
 import uz.hamroev.imagebywavelet.utils.invisible
 import uz.hamroev.imagebywavelet.utils.visible
+import uz.hamroev.medanalysis.R
 import uz.hamroev.medanalysis.adapters.ResultsAdapter
+import uz.hamroev.medanalysis.cache.Cache
 import uz.hamroev.medanalysis.database.ResultDatabase
 import uz.hamroev.medanalysis.database.ResultEntity
 import uz.hamroev.medanalysis.databinding.FragmentSavedBinding
@@ -43,6 +45,12 @@ class SavedFragment : Fragment() {
             val resultAdapter = ResultsAdapter(binding.root.context, list, object : ResultsAdapter.OnMyClickListener{
                 override fun onShare(resultEntity: ResultEntity, position: Int) {
 
+                    var ab = ""
+                    if (resultEntity.sex == "erkak"){
+                        ab = resources.getString(R.string.man)
+                    } else {
+                        ab = resources.getString(R.string.woman)
+                    }
                     var message: String = ""
                     var shareMessage: String =
                         "https://play.google.com/store/apps/details?id="
@@ -50,11 +58,13 @@ class SavedFragment : Fragment() {
                     val name = "Med - Analysis"
                     message = "$name\n\n" +
                             "* * * * * * *\n" +
-                            "Диагностический номер: ${list[position].id}\n" +
-                            "Пользователь: ${list[position].fio}\n" +
-                            "${list[position].countBall}\n" +
-                            "Диагноз: ${list[position].diagnos}\n" +
-                            "Время: ${list[position].date}" +
+                            "ID: ${resultEntity.id}\n" +
+                            "${activity?.resources!!.getString(R.string.user)}: ${resultEntity.fio}\n" +
+                            "${activity?.resources!!.getString(R.string.sex)}: ${ab}\n" +
+                            "${activity?.resources!!.getString(R.string.born)}: ${resultEntity.birth}\n" +
+                            "${activity?.resources!!.getString(R.string.address)}: ${resultEntity.address}\n" +
+                            "${activity?.resources!!.getString(R.string.diagnoss)}: ${resultEntity.diagnos}\n" +
+                            "${activity?.resources!!.getString(R.string.time)}: ${resultEntity.date}" +
                             "\n" +
                             "\n* * * * * * *\n" +
                             "$shareMessage"

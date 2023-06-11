@@ -1,6 +1,7 @@
 package uz.hamroev.medanalysis.ui.result
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +39,17 @@ class ResultFragment : Fragment() {
         binding.nameTv.text = Cache.name
         binding.timeTv.text = getCurrentDateAndTime()
 
+        var ab = ""
+        if (Cache.sex == "erkak"){
+            ab = resources.getString(R.string.man)
+        } else {
+            ab = resources.getString(R.string.woman)
+        }
+
         binding.countTv.text = "${activity?.resources!!.getString(R.string.sum_ball)} - ${Cache.countAll}"
+        binding.userInfoTv.text = "${activity?.resources!!.getString(R.string.born)}: - ${Cache.birth}\n" +
+                "${activity?.resources!!.getString(R.string.sex)}: - ${ab}\n" +
+                "${activity?.resources!!.getString(R.string.address)}: - ${Cache.address}"
 
         val sum = Cache.countAll
         var diagnosText = ""
@@ -60,6 +71,13 @@ class ResultFragment : Fragment() {
 
         val resultEntity = ResultEntity()
         resultEntity.fio = Cache.name
+        if (Cache.sex == "erkak"){
+            resultEntity.sex = resources.getString(R.string.man)
+        } else {
+            resultEntity.sex = resources.getString(R.string.woman)
+        }
+        resultEntity.birth = Cache.birth
+        resultEntity.address = Cache.address
         resultEntity.countBall = "${activity?.resources!!.getString(R.string.sum_ball)} ${Cache.countAll}"
         resultEntity.diagnos = diagnosText
         resultEntity.date = getCurrentDateAndTime()
@@ -67,6 +85,30 @@ class ResultFragment : Fragment() {
         resultDatabase.resultDao().addResult(resultEntity)
 
 
+        binding.shareLayout.setOnClickListener {
+            var message: String = ""
+            var shareMessage: String =
+                "https://play.google.com/store/apps/details?id="
+            shareMessage = "https://play.google.com/store/apps/details?id=" + activity?.packageName
+            val name = "Med - Analysis"
+            message = "$name\n\n" +
+                    "* * * * * * *\n" +
+                    "${activity?.resources!!.getString(R.string.user)}: ${Cache.name}\n" +
+                    "${activity?.resources!!.getString(R.string.sex)}: ${ab}\n" +
+                    "${activity?.resources!!.getString(R.string.born)}: ${Cache.birth}\n" +
+                    "${activity?.resources!!.getString(R.string.address)}: ${Cache.address}\n" +
+                    "${activity?.resources!!.getString(R.string.diagnoss)}: ${diagnosText}\n" +
+                    "${activity?.resources!!.getString(R.string.time)}: ${getCurrentDateAndTime()}" +
+                    "\n" +
+                    "\n* * * * * * *\n" +
+                    "$shareMessage"
+
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_TEXT, message)
+            val chooser = Intent.createChooser(intent, "Share using...")
+            startActivity(chooser)
+        }
 
 
         return binding.root

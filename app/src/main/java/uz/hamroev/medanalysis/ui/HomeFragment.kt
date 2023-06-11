@@ -1,5 +1,6 @@
 package uz.hamroev.medanalysis.ui
 
+import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -10,6 +11,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import uz.hamroev.imagebywavelet.utils.toast
@@ -60,8 +62,20 @@ class HomeFragment : Fragment() {
 
 
 
+
+
         binding.menuButton.setOnClickListener {
             binding.drawerLayout.open()
+        }
+
+        binding.manLinear.setOnClickListener {
+            Cache.sex = "erkak"
+            checkSex()
+        }
+
+        binding.womanLinear.setOnClickListener {
+            Cache.sex = "ayol"
+            checkSex()
         }
 
 
@@ -166,10 +180,23 @@ class HomeFragment : Fragment() {
 
         binding.resultButton.setOnClickListener {
             if (binding.fioEt.text.isNotEmpty()) {
-                Cache.name = binding.fioEt.text.toString().trim()
-                count()
-                findNavController().navigate(R.id.resultFragment)
-                clearCheck()
+                if (binding.userOld.text.isNotEmpty()) {
+                    if (Cache.sex != "") {
+
+                        Cache.name = binding.fioEt.text.toString().trim()
+                        Cache.birth = binding.userOld.text.toString().trim()
+                        Cache.address = binding.userAddress.text.toString().trim()
+                        count()
+                        findNavController().navigate(R.id.resultFragment)
+                        clearCheck()
+                    } else {
+                        count()
+                        toast(activity?.resources!!.getString(R.string.input_sex))
+                    }
+                } else {
+                    count()
+                    toast(activity?.resources!!.getString(R.string.input_date))
+                }
             } else {
                 count()
                 toast(activity?.resources!!.getString(R.string.input_fio))
@@ -184,6 +211,8 @@ class HomeFragment : Fragment() {
 
     private fun clearCheck() {
         binding.fioEt.setText("")
+        binding.userOld.setText("")
+        binding.userAddress.setText("")
         binding.apply {
             includeQuestion1.radioGroup.clearCheck()
             includeQuestion2.radioGroup.clearCheck()
@@ -234,15 +263,49 @@ class HomeFragment : Fragment() {
         }
     }
 
+
+    private fun checkSex() {
+        if (Cache.sex == "erkak") {
+            binding.manImg.setImageResource(R.drawable.man)
+            binding.manTv.text = resources.getString(R.string.man)
+            binding.manTv.setTextColor(resources.getColor(R.color.man))
+
+            binding.womanImg.setImageResource(R.drawable.woman_grey)
+            binding.womanTv.text = resources.getString(R.string.woman)
+            binding.womanTv.setTextColor(resources.getColor(R.color.grey2))
+
+        } else if (Cache.sex == "ayol") {
+            binding.manImg.setImageResource(R.drawable.man_grey)
+            binding.manTv.text = resources.getString(R.string.man)
+            binding.manTv.setTextColor(resources.getColor(R.color.grey2))
+
+            binding.womanImg.setImageResource(R.drawable.woman)
+            binding.womanTv.text = resources.getString(R.string.woman)
+            binding.womanTv.setTextColor(resources.getColor(R.color.woman))
+        } else {
+            binding.womanImg.setImageResource(R.drawable.woman_grey)
+            binding.womanTv.text = resources.getString(R.string.woman)
+            binding.womanTv.setTextColor(resources.getColor(R.color.grey2))
+
+            binding.manImg.setImageResource(R.drawable.man_grey)
+            binding.manTv.text = resources.getString(R.string.man)
+            binding.manTv.setTextColor(resources.getColor(R.color.grey2))
+
+        }
+    }
+
     private fun solve() {
         //question 1
         binding.includeQuestion1.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
                     question1 = 0
+                    hideKeyboard()
+
                 }
                 R.id.radio_button2 -> {
                     question1 = 1
+                    hideKeyboard()
                 }
             }
         }
@@ -252,9 +315,11 @@ class HomeFragment : Fragment() {
             when (checkedId) {
                 R.id.radio_button1 -> {
                     question2 = 0
+                    hideKeyboard()
                 }
                 R.id.radio_button2 -> {
                     question2 = 1
+                    hideKeyboard()
                 }
             }
         }
@@ -264,9 +329,11 @@ class HomeFragment : Fragment() {
             when (checkedId) {
                 R.id.radio_button1 -> {
                     question3 = 0
+                    hideKeyboard()
                 }
                 R.id.radio_button2 -> {
                     question3 = 1
+                    hideKeyboard()
                 }
             }
         }
@@ -275,6 +342,7 @@ class HomeFragment : Fragment() {
         binding.includeQuestion4.radioGroup1.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button_no -> {
+                    hideKeyboard()
                     question4 = 0
                     binding.includeQuestion4.radioGroup2.clearCheck()
                 }
@@ -285,14 +353,17 @@ class HomeFragment : Fragment() {
         binding.includeQuestion4.radioGroup2.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question4 = 1
                     binding.includeQuestion4.radioGroup1.clearCheck()
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question4 = 2
                     binding.includeQuestion4.radioGroup1.clearCheck()
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question4 = 3
                     binding.includeQuestion4.radioGroup1.clearCheck()
                 }
@@ -304,9 +375,11 @@ class HomeFragment : Fragment() {
         binding.includeQuestion5.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question5 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question5 = 1
                 }
             }
@@ -317,9 +390,11 @@ class HomeFragment : Fragment() {
         binding.includeQuestion6.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question6 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question6 = 1
                 }
             }
@@ -329,6 +404,7 @@ class HomeFragment : Fragment() {
         binding.includeQuestion7.radioGroup1.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button_no -> {
+                    hideKeyboard()
                     question7 = 0
                     binding.includeQuestion7.radioGroup2.clearCheck()
                 }
@@ -339,14 +415,17 @@ class HomeFragment : Fragment() {
         binding.includeQuestion7.radioGroup2.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question7 = 1
                     binding.includeQuestion7.radioGroup1.clearCheck()
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question7 = 2
                     binding.includeQuestion7.radioGroup1.clearCheck()
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question7 = 3
                     binding.includeQuestion7.radioGroup1.clearCheck()
                 }
@@ -358,15 +437,19 @@ class HomeFragment : Fragment() {
         binding.includeQuestion8.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question8 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question8 = 1
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question8 = 2
                 }
                 R.id.radio_button4 -> {
+                    hideKeyboard()
                     question8 = 3
                 }
 
@@ -377,18 +460,23 @@ class HomeFragment : Fragment() {
         binding.includeQuestion9.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question9 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question9 = 1
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question9 = 2
                 }
                 R.id.radio_button4 -> {
+                    hideKeyboard()
                     question9 = 3
                 }
                 R.id.radio_button5 -> {
+                    hideKeyboard()
                     question9 = 4
                 }
 
@@ -399,18 +487,23 @@ class HomeFragment : Fragment() {
         binding.includeQuestion10.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question10 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question10 = 1
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question10 = 2
                 }
                 R.id.radio_button4 -> {
+                    hideKeyboard()
                     question10 = 3
                 }
                 R.id.radio_button5 -> {
+                    hideKeyboard()
                     question10 = 4
                 }
 
@@ -421,6 +514,7 @@ class HomeFragment : Fragment() {
         binding.includeQuestion11.radioGroup1.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button_no -> {
+                    hideKeyboard()
                     question11 = 0
                     binding.includeQuestion11.radioGroup2.clearCheck()
                 }
@@ -431,14 +525,17 @@ class HomeFragment : Fragment() {
         binding.includeQuestion11.radioGroup2.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question11 = 1
                     binding.includeQuestion11.radioGroup1.clearCheck()
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question11 = 2
                     binding.includeQuestion11.radioGroup1.clearCheck()
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question11 = 3
                     binding.includeQuestion11.radioGroup1.clearCheck()
                 }
@@ -450,9 +547,11 @@ class HomeFragment : Fragment() {
         binding.includeQuestion12.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question12 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question12 = 1
                 }
             }
@@ -462,15 +561,19 @@ class HomeFragment : Fragment() {
         binding.includeQuestion13.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question13 = 1
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question13 = 2
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question13 = 3
                 }
                 R.id.radio_button4 -> {
+                    hideKeyboard()
                     question13 = 4
                 }
             }
@@ -481,9 +584,11 @@ class HomeFragment : Fragment() {
         binding.includeQuestion14.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question14 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question14 = 1
                 }
             }
@@ -493,15 +598,19 @@ class HomeFragment : Fragment() {
         binding.includeQuestion16.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question16 = 1
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question16 = 2
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question16 = 3
                 }
                 R.id.radio_button4 -> {
+                    hideKeyboard()
                     question16 = 4
                 }
             }
@@ -511,9 +620,11 @@ class HomeFragment : Fragment() {
         binding.includeQuestion17.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question17 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question17 = 1
                 }
             }
@@ -524,9 +635,11 @@ class HomeFragment : Fragment() {
         binding.includeQuestion18.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question18 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question18 = 1
                 }
             }
@@ -536,9 +649,11 @@ class HomeFragment : Fragment() {
         binding.includeQuestion19.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question19 = 0
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question19 = 1
                 }
             }
@@ -548,15 +663,19 @@ class HomeFragment : Fragment() {
         binding.includeQuestion20.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question20 = 1
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question20 = 2
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question20 = 3
                 }
                 R.id.radio_button4 -> {
+                    hideKeyboard()
                     question20 = 4
                 }
             }
@@ -566,18 +685,23 @@ class HomeFragment : Fragment() {
         binding.includeQuestion21.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio_button1 -> {
+                    hideKeyboard()
                     question21 = 1
                 }
                 R.id.radio_button2 -> {
+                    hideKeyboard()
                     question21 = 2
                 }
                 R.id.radio_button3 -> {
+                    hideKeyboard()
                     question21 = 3
                 }
                 R.id.radio_button4 -> {
+                    hideKeyboard()
                     question21 = 4
                 }
                 R.id.radio_button5 -> {
+                    hideKeyboard()
                     question21 = 5
                 }
             }
@@ -644,4 +768,25 @@ class HomeFragment : Fragment() {
             context.resources.displayMetrics
         )
     }
+
+    fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+
+    fun Context.hideKeyboard(view: View) {
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        Cache.sex = ""
+        Cache.birth = ""
+        Cache.address = ""
+        checkSex()
+    }
+
 }

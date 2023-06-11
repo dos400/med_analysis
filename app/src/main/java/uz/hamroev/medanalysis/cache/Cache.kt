@@ -35,6 +35,30 @@ object Cache {
             }
         }
 
+    var sex: String?
+        get() = sharedPreferences.getString("sex", "")
+        set(value) = sharedPreferences.edit() {
+            if (value != null) {
+                it.putString("sex", value)
+            }
+        }
+
+    var birth: String?
+        get() = sharedPreferences.getString("birth", "")
+        set(value) = sharedPreferences.edit() {
+            if (value != null) {
+                it.putString("birth", value)
+            }
+        }
+
+    var address: String?
+        get() = sharedPreferences.getString("address", "")
+        set(value) = sharedPreferences.edit() {
+            if (value != null) {
+                it.putString("address", value)
+            }
+        }
+
     var countAll: Int?
         get() = sharedPreferences.getInt("countall", 0)
         set(value) = sharedPreferences.edit() {

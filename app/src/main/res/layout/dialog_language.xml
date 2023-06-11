@@ -72,7 +72,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center_vertical"
                         android:padding="10dp"
-                        android:text="Russian"
+                        android:text="Русский"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -206,7 +206,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center_vertical"
                         android:padding="10dp"
-                        android:text="Uzbek"
+                        android:text="Ўзбекча"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="bold" />

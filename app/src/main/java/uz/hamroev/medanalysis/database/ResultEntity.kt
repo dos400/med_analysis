@@ -10,11 +10,13 @@ class ResultEntity {
 
     var date: String? = null
     var fio: String? = null
+    var sex: String? = null
+    var birth: String? = null
+    var address: String? = null
     var diagnos: String? = null
     var countBall: String? = null
 
-    var diagnos2: String? = null
-    var diagnos3: String? = null
+
 
 
 }
